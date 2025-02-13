@@ -106,11 +106,12 @@ public class TodoController {
      * 🔹 Description: Deletes a TODO item by ID
      * 🔹 Path Variable: id (String)
      */
- @DeleteMapping("/{id}")
-public ResponseEntity<Void> deleteTodo(@PathVariable("id") String id) {
-    todoService.deleteTodo(id);
-    return ResponseEntity.noContent().build();
-}
+    @DeleteMapping("/{id}")
+    public void deleteTodo(@PathVariable(name = "id") String id) {  
+        todoService.deleteTodo(id);
+    }
+    
+    
     /**
      * 🔹 Endpoint: PUT /todos/{id}/complete
      * 🔹 Request Type: PUT
